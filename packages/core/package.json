@@ -1,0 +1,16 @@
+{
+  "name": "@printai/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework-free domain layer: design document model, product catalog, templates, pricing. Shared by web and (later) mobile.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.2"
+  }
+}

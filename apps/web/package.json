@@ -1,0 +1,39 @@
+{
+  "name": "@printai/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "generate-routes": "tsr generate",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsr generate && tsc --noEmit"
+  },
+  "dependencies": {
+    "@printai/core": "workspace:*",
+    "@supabase/ssr": "^0.12.5",
+    "@supabase/supabase-js": "^2.113.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@tanstack/react-router": "^1.170.32",
+    "@tanstack/react-start": "^1.168.49",
+    "idb-keyval": "^6.2.2",
+    "konva": "^10.3.2",
+    "lucide-react": "^1.39.0",
+    "nanoid": "^6.0.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-konva": "^19.2.5",
+    "tailwindcss": "^4.3.3",
+    "zod": "^4.5.4",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@tanstack/router-cli": "^1.167.33",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^6.0.2",
+    "vite": "^8.2.2"
+  }
+}
