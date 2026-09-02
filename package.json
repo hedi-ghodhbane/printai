@@ -7,7 +7,8 @@
     "dev": "pnpm --filter @printai/web dev",
     "build": "pnpm --filter @printai/web build",
     "preview": "pnpm --filter @printai/web preview",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "test:e2e": "pnpm --filter @printai/web test:e2e"
   },
   "pnpm": {
     "onlyBuiltDependencies": ["esbuild", "lightningcss"]

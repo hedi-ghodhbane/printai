@@ -35,13 +35,14 @@ function SideProps() {
   const sideIndex = useEditor((s) => s.sideIndex)
   const updateSide = useEditor((s) => s.updateSide)
   const setDoc = useEditor((s) => s.setDoc)
+  const checkpoint = useEditor((s) => s.checkpoint)
   const product = getProduct(doc.productSlug)!
   const side = doc.sides[sideIndex]!
   return (
     <div className="p-3">
       <p className="panel-title px-0">{product.name} · {side.name}</p>
       <Row label="Title">
-        <input className="field field-sm" value={doc.title} onChange={(e) => setDoc((d) => ({ ...d, title: e.target.value }), { transient: true })} />
+        <input className="field field-sm" value={doc.title} onFocus={checkpoint} onChange={(e) => setDoc((d) => ({ ...d, title: e.target.value }), { transient: true })} />
       </Row>
       <Row label="Size">
         <select
@@ -157,6 +158,7 @@ function ElementProps({ el }: { el: DesignElement }) {
 
 function TextProps({ el }: { el: TextElement }) {
   const update = useEditor((s) => s.updateElement)
+  const checkpoint = useEditor((s) => s.checkpoint)
   const u = (patch: Partial<TextElement>, transient = false) => update(el.id, patch, { transient })
   const face = FONTS.find((f) => f.family === el.fontFamily)
   const weights = face?.weights ?? [400, 700]
@@ -164,7 +166,7 @@ function TextProps({ el }: { el: TextElement }) {
   return (
     <>
       <Row label="Text">
-        <textarea className="field field-sm" rows={3} value={el.text} dir="auto" onChange={(e) => u({ text: e.target.value }, true)} />
+        <textarea className="field field-sm" rows={3} value={el.text} dir="auto" onFocus={checkpoint} onChange={(e) => u({ text: e.target.value }, true)} />
       </Row>
       <Row label="Font">
         <select className="field field-sm" value={el.fontFamily} style={{ fontFamily: el.fontFamily }} onChange={(e) => {

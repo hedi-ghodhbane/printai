@@ -103,11 +103,12 @@ function TopBar({ saveState, onSave, onExport, exporting, onOrder, productName }
   const past = useEditor((s) => s.past.length)
   const future = useEditor((s) => s.future.length)
   const setDoc = useEditor((s) => s.setDoc)
+  const checkpoint = useEditor((s) => s.checkpoint)
   return (
     <div className="flex items-center gap-2 border-b border-line bg-paper px-3 py-2">
       <Link to="/designs" className="btn btn-ghost btn-sm" title="My designs"><ArrowLeft size={16} /></Link>
       <div className="hidden min-w-0 sm:block">
-        <input className="w-56 truncate border-0 bg-transparent font-display text-base outline-none focus:underline" value={doc.title} onChange={(e) => setDoc((d) => ({ ...d, title: e.target.value }), { transient: true })} />
+        <input className="w-56 truncate border-0 bg-transparent font-display text-base outline-none focus:underline" value={doc.title} onFocus={checkpoint} onChange={(e) => setDoc((d) => ({ ...d, title: e.target.value }), { transient: true })} />
         <p className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-muted">{productName} · {doc.width}×{doc.height} mm</p>
       </div>
       <div className="mx-auto flex items-center gap-1 rounded-sm border border-line p-0.5">
